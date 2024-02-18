@@ -1,0 +1,17 @@
+{
+    "name": "fabianosfbr/poo-avancado",
+    "autoload": {
+        "psr-4": {
+            "Fabianosfbr\\PooAvancado\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fabianosfbr",
+            "email": "contato@fabianofernandes.adm.br"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.4"
+    }
+}
