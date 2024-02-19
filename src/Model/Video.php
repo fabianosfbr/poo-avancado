@@ -20,25 +20,23 @@ class Video
         $this->duracao = new DateInterval('PT0S');
     }
 
-    public function getNome():string
+    public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function assistir():void
+    public function assistir(): void
     {
         $this->assistido = true;
     }
 
-    public function minutosDeDuracao():int
+    public function minutosDeDuracao(): int
     {
         return $this->duracao->i;
     }
 
-    public function recuperarUrl():string
+    public function recuperarUrl(): string
     {
         return "https://www.youtube.com/watch?v={$this->nome}";
     }
-
-
 }

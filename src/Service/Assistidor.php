@@ -8,14 +8,13 @@ use Fabianosfbr\PooAvancado\Model\BetterPlayMais;
 class Assistidor
 {
 
-    public function assistir(Video $video):void
+    public function assistir(Video $video): void
     {
         $video->assistir();
     }
 
-    public function assistirBetterPlay(BetterPlayMais $video):void
+    public function assistirBetterPlay(BetterPlayMais $video): void
     {
         $video->assistir();
     }
-
 }

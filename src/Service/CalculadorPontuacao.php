@@ -9,16 +9,15 @@ use Fabianofsbr\PooAvancado\Model\Curso;
 class CalculadorPontuacao
 {
 
-    public function recuperarPontuacao($conteudo):int
+    public function recuperarPontuacao($conteudo): int
     {
 
-        if($conteudo instanceof Curso){
+        if ($conteudo instanceof Curso) {
             return 100;
-        }elseif($conteudo instanceof BetterPlayMais){
+        } elseif ($conteudo instanceof BetterPlayMais) {
             return $conteudo->minustosDeDuracao() * 2;
-        }else{
+        } else {
             throw new DomainException('Conteudo inválido');
         }
     }
-
 }

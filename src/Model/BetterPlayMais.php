@@ -18,7 +18,7 @@ class BetterPlayMais
     }
 
 
-    public function assistir():void
+    public function assistir(): void
     {
         $this->assistido = true;
     }
@@ -27,5 +27,4 @@ class BetterPlayMais
     {
         return $this->duracao->i;
     }
-
 }

@@ -10,7 +10,7 @@ class Curso
 
     private bool $assistido = false;
 
-    private DateInterval $duracao ;
+    private DateInterval $duracao;
 
     public function __construct(string $nome)
     {
@@ -19,19 +19,18 @@ class Curso
         $this->duracao = DateInterval::createFromDateString('0');
     }
 
-    public function assistir():void
+    public function assistir(): void
     {
         $this->assistido = true;
     }
 
-    public function minutosDeDuracao():int
+    public function minutosDeDuracao(): int
     {
         return $this->duracao->i;
     }
 
-    public function recupearUrl():string
+    public function recupearUrl(): string
     {
         return 'http://localhost/curso/' . $this->nome;
     }
-
 }
