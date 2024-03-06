@@ -20,10 +20,6 @@ class Video
         $this->duracao = new DateInterval('PT0S');
     }
 
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
 
     public function assistir(): void
     {

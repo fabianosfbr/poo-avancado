@@ -4,27 +4,19 @@ namespace Fabianosfbr\PooAvancado\Model;
 
 use DateInterval;
 
-class BetterPlayMais
+class BetterPlayMais extends Video
 {
-    private string $nome;
-    private bool $assistido;
-    private DateInterval $duracao;
 
-    public function __construct($nome)
+    private string $categoria;
+    public function __construct(string $nome, string $categoria)
     {
-        $this->nome = $nome;
-        $this->assistido = false;
-        $this->duracao = new DateInterval('PT0S');
+        parent::__construct($nome);
+        $this->categoria = $categoria;
     }
 
 
-    public function assistir(): void
+    public function recuperarUrl(): string
     {
-        $this->assistido = true;
-    }
-
-    public function minustosDeDuracao()
-    {
-        return $this->duracao->i;
+        return str_replace(' ', '-', strtolower($this->categoria));
     }
 }

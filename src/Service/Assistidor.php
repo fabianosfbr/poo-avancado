@@ -2,20 +2,24 @@
 
 namespace Fabianosfbr\PooAvancado\Service;
 
-use Fabianosfbr\PooAvancado\Model\Video;
+
+use Fabianofsbr\PooAvancado\Model\Curso;
 use Fabianosfbr\PooAvancado\Model\BetterPlayMais;
 
 class Assistidor
 {
 
-    public function assistir(Video $video): void
+
+    public function assistirVideo(Curso $curso)
     {
-        $video->assistir();
+        foreach ($curso->recuperarVideos() as $video) {
+            $video->assistir();
+        }
     }
 
-    public function assistirBetterPlay(BetterPlayMais $video): void
+    public function assistirBetterPlay(BetterPlayMais $betterPlayMais)
     {
-        $video->assistir();
+        $betterPlayMais->assistir();
     }
 
 }

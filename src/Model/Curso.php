@@ -3,34 +3,46 @@
 namespace Fabianofsbr\PooAvancado\Model;
 
 use DateInterval;
+use DomainException;
+use Fabianosfbr\PooAvancado\Model\Video;
 
 class Curso
 {
     private string $nome;
 
-    private bool $assistido = false;
+    private $videos;
+
+    private $feedbacks;
 
     private DateInterval $duracao;
 
     public function __construct(string $nome)
     {
         $this->nome = $nome;
-        $this->assistido = false;
-        $this->duracao = DateInterval::createFromDateString('0');
+        $this->videos = [];
+        $this->feedbacks = [];
     }
 
-    public function assistir(): void
+    public function receberFeedback(int $nota, ?string $depoimento): void
     {
-        $this->assistido = true;
+        if ($nota < 9 && empty($depoimento)) {
+            throw new DomainException('Depoimento obrigatório');
+        }
+
+        $this->feedbacks[] = [$nota, $depoimento];
     }
 
-    public function minutosDeDuracao(): int
+    public function adicionarVideo(Video $video):void
     {
-        return $this->duracao->i;
+        if ($video->minutosDeDuracao() < 3) {
+            throw new DomainException('Video muito curto');
+        }
+
+        $this->videos[] = $video;
     }
 
-    public function recupearUrl(): string
+    public function recuperarVideos(): array
     {
-        return 'http://localhost/curso/' . $this->nome;
+        return $this->videos;
     }
 }
