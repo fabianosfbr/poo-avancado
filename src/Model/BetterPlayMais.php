@@ -17,6 +17,7 @@ class BetterPlayMais extends Video
 
     public function recuperarUrl(): string
     {
-        return str_replace(' ', '-', strtolower($this->categoria));
+        return "https://www.youtube.com/watch?c={$this->categoria}&v={parent::nome}";
+       
     }
 }
